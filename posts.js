@@ -1,4 +1,4 @@
-
+const posts = [
   {
     "id": "post_1783167771075",
     "title": "The Mediterranean Monk Seal Is Not Losing the Sea. It's Losing Its Home.",
