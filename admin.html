@@ -125,35 +125,43 @@
     }
 
     function addPost() {
-      const title = document.getElementById('title').value.trim();
-      const image = document.getElementById('image').value.trim();
-      const excerpt = document.getElementById('excerpt').value.trim();
-      const content = document.getElementById('content').value.trim();
-      const msgArea = document.getElementById('msg-area');
+      try {
+        const title = document.getElementById('title').value.trim();
+        const image = document.getElementById('image').value.trim();
+        const excerpt = document.getElementById('excerpt').value.trim();
+        const content = document.getElementById('content').value.trim();
+        const msgArea = document.getElementById('msg-area');
 
-      if (!title || !excerpt || !content) {
-        msgArea.innerHTML = '<div class="msg error">Please fill in title, excerpt, and content.</div>';
-        return;
+        if (!title || !excerpt || !content) {
+          msgArea.innerHTML = '<div class="msg error">Please fill in title, excerpt, and content.</div>';
+          return;
+        }
+
+        const newPost = {
+          id: generateId(),
+          title,
+          image: image || '',
+          excerpt,
+          date: getDate(),
+          content
+        };
+
+        localPosts.unshift(newPost);
+        renderList();
+        generateOutput();
+
+        document.getElementById('title').value = '';
+        document.getElementById('image').value = '';
+        document.getElementById('excerpt').value = '';
+        document.getElementById('content').value = '';
+        msgArea.innerHTML = '<div class="msg success">Post added! Scroll down to copy the code.</div>';
+
+        // Auto-scroll so the generated code is visible immediately (helps on mobile)
+        document.getElementById('output-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        alert('ERROR: ' + err.message);
+        console.error(err);
       }
-
-      const newPost = {
-        id: generateId(),
-        title,
-        image: image || '',
-        excerpt,
-        date: getDate(),
-        content
-      };
-
-      localPosts.unshift(newPost);
-      renderList();
-      generateOutput();
-
-      document.getElementById('title').value = '';
-      document.getElementById('image').value = '';
-      document.getElementById('excerpt').value = '';
-      document.getElementById('content').value = '';
-      msgArea.innerHTML = '<div class="msg success">Post added! Copy the posts.js below and upload to GitHub.</div>';
     }
 
     function deletePost(index) {
