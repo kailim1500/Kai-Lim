@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post | Kai Lim</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name">Kai Lim</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <article class="post-page" id="post-content">
+    <div class="post-loading">Loading...</div>
+  </article>
+
+  <div class="divider"></div>
+
+  <section class="back-section">
+    <a href="research.html" class="btn-outline">← Back to Research</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Kai Lim · Singapore</p>
+    <p class="footer-links">
+      <a href="https://x.com/" target="_blank">X / Twitter</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const post = posts.find(p => p.id === id);
+    const container = document.getElementById('post-content');
+
+    if (!post) {
+      container.innerHTML = '<p class="no-posts">Post not found.</p>';
+    } else {
+      document.title = post.title + ' | Kai Lim';
+      container.innerHTML = `
+        <div class="post-header">
+          <span class="post-date">${post.date}</span>
+          <h1>${post.title}</h1>
+        </div>
+        <div class="post-cover" style="background-image:url('${post.image}')"></div>
+        <div class="post-body">${post.content}</div>
+      `;
+    }
+  </script>
+</body>
+</html>
