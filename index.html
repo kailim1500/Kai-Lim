@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kai Lim | Wildlife Researcher</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-name">Kai Lim</div>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Wildlife & Marine Research</div>
+    <h1>Studying the species<br/><em>the world is forgetting.</em></h1>
+    <p class="hero-sub">Based in Singapore · Focused on rare and endangered fauna · Field notes, observations, and reflections from the edge of conservation.</p>
+    <a href="research.html" class="btn">View Research →</a>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"></div>
+
+  <!-- FOCUS AREAS -->
+  <section class="focus">
+    <div class="section-label">Research Focus</div>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <span class="focus-icon">🌊</span>
+        <h3>Marine Mammals</h3>
+        <p>Population dynamics and behavioral ecology of rare marine species across Mediterranean and Southeast Asian waters.</p>
+      </div>
+      <div class="focus-card">
+        <span class="focus-icon">🔬</span>
+        <h3>Species Conservation</h3>
+        <p>Field documentation of critically endangered fauna, contributing to global IUCN assessments and conservation planning.</p>
+      </div>
+      <div class="focus-card">
+        <span class="focus-icon">📍</span>
+        <h3>Field Observation</h3>
+        <p>Ground-level research and habitat analysis for species with fewer than 1,000 individuals remaining in the wild.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider"></div>
+
+  <!-- LATEST ARTICLES -->
+  <section class="latest">
+    <div class="section-label">Latest from the Field</div>
+    <div id="latest-posts"></div>
+    <a href="research.html" class="btn-outline">All Research Notes →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Kai Lim · Singapore</p>
+    <p class="footer-links">
+      <a href="https://x.com/" target="_blank">X / Twitter</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    // Show latest 2 posts on homepage
+    const container = document.getElementById('latest-posts');
+    const recent = posts.slice(0, 2);
+    if (recent.length === 0) {
+      container.innerHTML = '<p class="no-posts">Field notes coming soon.</p>';
+    } else {
+      recent.forEach(post => {
+        container.innerHTML += `
+          <a href="post.html?id=${post.id}" class="post-card">
+            <div class="post-img" style="background-image:url('${post.image}')"></div>
+            <div class="post-info">
+              <span class="post-date">${post.date}</span>
+              <h3>${post.title}</h3>
+              <p>${post.excerpt}</p>
+            </div>
+          </a>`;
+      });
+    }
+  </script>
+</body>
+</html>
