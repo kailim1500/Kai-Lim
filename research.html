@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research | Kai Lim</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name">Kai Lim</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <div class="section-label">Field Notes & Research</div>
+    <h1>Observations from<br/><em>the margins of wildlife.</em></h1>
+    <p>This is where I document what I find — species on the edge, habitats under pressure, and the slow work of understanding animals before they disappear. These notes range from structured research summaries to raw field observations.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="research-list">
+    <div id="posts-container"></div>
+    <p id="no-posts-msg" class="no-posts" style="display:none;">Field notes coming soon. Check back shortly.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Kai Lim · Singapore</p>
+    <p class="footer-links">
+      <a href="https://x.com/" target="_blank">X / Twitter</a> ·
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="posts.js"></script>
+  <script>
+    const container = document.getElementById('posts-container');
+    const noMsg = document.getElementById('no-posts-msg');
+    if (posts.length === 0) {
+      noMsg.style.display = 'block';
+    } else {
+      posts.forEach(post => {
+        container.innerHTML += `
+          <a href="post.html?id=${post.id}" class="post-card wide">
+            <div class="post-img" style="background-image:url('${post.image}')"></div>
+            <div class="post-info">
+              <span class="post-date">${post.date}</span>
+              <h3>${post.title}</h3>
+              <p>${post.excerpt}</p>
+              <span class="read-more">Read field note →</span>
+            </div>
+          </a>`;
+      });
+    }
+  </script>
+</body>
+</html>
