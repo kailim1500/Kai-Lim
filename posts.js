@@ -1,6 +1,5 @@
 const posts = [
-
-    {
+  {
     "id": "post_004",
     "title": "Why Small Wounds Become Deadly During the Monsoon",
     "image": "https://mxp-media.ilnmedia.com/media/content/2021/Sep/Ratan-Tata-Lauds-Employee-For-Sharing-Umbrella-With-Stray-Dog-In-Rain-1400x65_614ec288196a9.jpeg?w=450&h=210&cc=1",
@@ -31,6 +30,5 @@ const posts = [
     "excerpt": "Working with critically endangered species changes how you think about observation, documentation, and time. Some field notes on what the numbers feel like when you are close to them.",
     "date": "April 2026",
     "content": "<p>When you work in conservation research, even at the level I do — assisting, reviewing literature, processing data — you become fluent in a particular kind of arithmetic. Population counts. Habitat loss percentages. Generation lengths. Extinction probabilities.</p><p>Most of the time, these numbers remain abstract. They are entries in a database, citations in a paper.</p><p>But occasionally a number becomes real.</p><h2>The Weight of 800</h2><p>Eight hundred is not a large number. It is a mid-sized lecture hall. It is a village. It is the number of people who might ride a single metro train in the morning.</p><p>For the Mediterranean Monk Seal, it is an entire species.</p><p>Working with population data for a species at this threshold changes how you read the numbers. Every confirmed individual matters differently than it would in a species with healthy population buffers. Every unconfirmed sighting carries weight. Every reported death is recorded with a kind of reluctant gravity.</p><p>Dr. Chen, whose work I assist, describes it as <em>&quot;research with stakes you cannot fully detach from.&quot;</em> I think that is accurate.</p><h2>Why Documentation Matters Now</h2><p>There is an argument in conservation biology that the most important work we can do for the most endangered species is simply to <strong>document thoroughly</strong> — to build the most complete scientific record possible while we still can. Not just for conservation planning, but as a form of record-keeping for what existed.</p><p>That instinct is part of what drives these field notes. A species this rare deserves careful witness.</p>"
-  },
-  
+  }
 ];
